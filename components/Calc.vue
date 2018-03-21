@@ -41,6 +41,7 @@ export default {
     pplNumberRules: [
       v => /\d+(\.\d+){0,1}/.test(v) || 'Liczba gospodarstw jest niepoprawna'
     ],
+    emailFormValid: false,
     email: '',
     emailRules: [
       v => !!v || 'E-mail is required',

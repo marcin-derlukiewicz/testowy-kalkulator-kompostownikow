@@ -26,8 +26,10 @@
 
 <script>
 import axios from 'axios'
+const storage = require('nuxt-cookie-storage')
 export default {
   data: () => ({
+    storage: storage,
     showForm: true,
     showLoading: false,
     showEmailLoading: false,
@@ -69,9 +71,9 @@ export default {
       }
     },
     showDialogMethod () {
-      // uncomment to alwaus show emai subscribe dialog
+      // uncomment to always show email subscribe dialog
       // this.$cookies.set('emailSubscribed', false) // debug
-      if (this.$cookies.get('emailSubscribed')) {
+      if (this.storage.get('emailSubscribed')) {
         // usability hack
         this.showLoading = true
         setTimeout(() => (this.submitForm()), 700)
@@ -91,10 +93,10 @@ export default {
         this.showEmailLoading = true
         setTimeout(() => (
           // change get to post and provide params
-          axios.get('http://localhost:3000/api/subscribe.json', {
+          axios.get('//api/subscribe.json', {
             email: this.email
           }).then((response) => {
-            this.$cookies.set('emailSubscribed', true, {
+            this.storage.set('emailSubscribed', true, {
               path: '/',
               maxAge: 60 * 60 * 24 * 7
               // add more options for security

@@ -16,7 +16,7 @@ module.exports = {
     ]
   },
   modules: [
-    'cookie-universal-nuxt'
+    // 'cookie-universal-nuxt'
   ],
   plugins: ['~/plugins/vuetify.js'],
   css: [
@@ -47,5 +47,8 @@ module.exports = {
         })
       }
     }
+  },
+  generate: {
+    subFolders: false
   }
 }

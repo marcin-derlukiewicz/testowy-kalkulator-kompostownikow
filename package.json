@@ -11,10 +11,11 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/auth": "^4.0.0-rc.3",
+    "@nuxtjs/axios": "^5.1.1",
     "axios": "^0.18.0",
-    "cookie-universal-nuxt": "^1.0.14",
     "nuxt": "^1.0.0",
-    "nuxt-cookie-storage": "^1.0.2",
+    "tiny-cookie": "^2.1.1",
     "vuetify": "^1.0.0"
   },
   "devDependencies": {

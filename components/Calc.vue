@@ -26,10 +26,9 @@
 
 <script>
 import axios from 'axios'
-const storage = require('nuxt-cookie-storage')
+// import { getCookie, setCookie } from 'tiny-cookie'
 export default {
   data: () => ({
-    storage: storage,
     showForm: true,
     showLoading: false,
     showEmailLoading: false,
@@ -73,7 +72,7 @@ export default {
     showDialogMethod () {
       // uncomment to always show email subscribe dialog
       // this.$cookies.set('emailSubscribed', false) // debug
-      if (this.storage.get('emailSubscribed')) {
+      if (this.$auth.getState('emailSubscribed')) {
         // usability hack
         this.showLoading = true
         setTimeout(() => (this.submitForm()), 700)
@@ -96,11 +95,10 @@ export default {
           axios.get('//api/subscribe.json', {
             email: this.email
           }).then((response) => {
-            this.storage.set('emailSubscribed', true, {
-              path: '/',
-              maxAge: 60 * 60 * 24 * 7
-              // add more options for security
-            })
+            this.$auth.setState('emailSubscribed', true)
+            // this.$cookie.set('emailSubscribed', true,
+            //   60 * 60 * 24 * 7
+            // )
             this.submitForm()
           }).catch((error) => {
             // todo iterpret errors from service

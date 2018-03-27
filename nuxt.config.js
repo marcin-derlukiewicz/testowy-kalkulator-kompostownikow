@@ -15,10 +15,9 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
     ]
   },
-  modules: [
-    'cookie-universal-nuxt'
+  plugins: [
+    '~/plugins/vuetify.js'
   ],
-  plugins: ['~/plugins/vuetify.js'],
   css: [
     '~/assets/style/app.styl'
   ],
@@ -26,6 +25,10 @@ module.exports = {
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
+  modules: [
+    '@nuxtjs/auth',
+    '@nuxtjs/axios'
+  ],
   /*
   ** Build configuration
   */
@@ -47,5 +50,8 @@ module.exports = {
         })
       }
     }
+  },
+  generate: {
+    subFolders: false
   }
 }

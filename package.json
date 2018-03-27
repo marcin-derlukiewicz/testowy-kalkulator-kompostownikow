@@ -11,14 +11,16 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/auth": "^4.0.0-rc.3",
+    "@nuxtjs/axios": "^5.1.1",
     "axios": "^0.18.0",
-    "cookie-universal-nuxt": "^1.0.14",
     "nuxt": "^1.0.0",
+    "tiny-cookie": "^2.1.1",
     "vuetify": "^1.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
-    "eslint": "^4.3.0",
+    "eslint": "^4.19.1",
     "eslint-config-standard": "^10.2.1",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-html": "^3.1.1",
